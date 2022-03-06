@@ -1,21 +1,698 @@
-<html>
-  
-  <head>
-  <title> 
-    Dao Tools
-  </title>
-      <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>
-<img src="https://avatars.githubusercontent.com/u/86242775?v=4">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DAO List</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
 
-    </h1>
-    <ul>
-    <li>Daos</li>
-    <li>Dao Tools</li>
-      <li>My favorite site is <a href="https://github.com">GitHub</a>!</li>
-</ul>
-      </body>
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
 
-</html>
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6fa52804-3f0c-432d-92cd-f17a79f830c3" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1568952433726-3896e3881c65?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 60%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📝</span></div><h1 class="page-title">DAO List</h1></header><div class="page-body"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Company</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesUrl"><path d="M3.73333,3.86667 L7.46667,3.86667 C8.49613,3.86667 9.33333,4.70387 9.33333,5.73333 C9.33333,6.7628 8.49613,7.6 7.46667,7.6 L6.53333,7.6 C6.01813,7.6 5.6,8.0186 5.6,8.53333 C5.6,9.04807 6.01813,9.46667 6.53333,9.46667 L7.46667,9.46667 C9.5284,9.46667 11.2,7.79507 11.2,5.73333 C11.2,3.6716 9.5284,2 7.46667,2 L3.73333,2 C1.6716,2 0,3.6716 0,5.73333 C0,7.124 0.762067,8.33453 1.88953,8.97713 C1.87553,8.83107 1.86667,8.6836 1.86667,8.53333 C1.86667,7.92013 1.98753,7.33447 2.2036,6.7978 C1.99267,6.4954 1.86667,6.12953 1.86667,5.73333 C1.86667,4.70387 2.70387,3.86667 3.73333,3.86667 Z M12.1095,5.28907 C12.1231,5.4356 12.1333,5.58307 12.1333,5.73333 C12.1333,6.34607 12.0101,6.9294 11.7931,7.46513 C12.0059,7.768 12.1333,8.13573 12.1333,8.53333 C12.1333,9.5628 11.2961,10.4 10.2667,10.4 L6.53333,10.4 C5.50387,10.4 4.66667,9.5628 4.66667,8.53333 C4.66667,7.50387 5.50387,6.66667 6.53333,6.66667 L7.46667,6.66667 C7.98187,6.66667 8.4,6.24807 8.4,5.73333 C8.4,5.2186 7.98187,4.8 7.46667,4.8 L6.53333,4.8 C4.4716,4.8 2.8,6.4716 2.8,8.53333 C2.8,10.59507 4.4716,12.2667 6.53333,12.2667 L10.2667,12.2667 C12.3284,12.2667 14,10.59507 14,8.53333 C14,7.14267 13.2375,5.93167 12.1095,5.28907 Z"></path></svg></span>Website</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Category</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFile"><path d="M5.94578,14 C4.62416,14 3.38248,13.4963 2.44892,12.585 C1.514641,11.6736 1,10.4639 1,9.17405 C1.00086108,7.88562 1.514641,6.67434 2.44892,5.76378 L7.45612,0.985988 C8.80142,-0.327216 11.1777,-0.332396 12.5354,0.992848 C13.9369,2.36163 13.9369,4.58722 12.5354,5.95418 L8.03046,10.2414 C7.16278,11.0877 5.73682,11.0894 4.86024,10.2345 C3.98394,9.37789 3.98394,7.98769 4.86024,7.1327 L6.60422,5.4317 L7.87576,6.67196 L6.13177,8.37297 C6.01668,8.48539 6.00003,8.61545 6.00003,8.68335 C6.00003,8.75083 6.01668,8.88103 6.13177,8.99429 C6.36197,9.21689 6.53749,9.21689 6.76768,8.99429 L11.2707,4.70622 C11.9645,4.03016 11.9645,2.91757 11.2638,2.23311 C10.5843,1.57007 9.40045,1.57007 8.72077,2.23311 L3.71342,7.0109 C3.12602,7.58406 2.79837,8.35435 2.79837,9.17405 C2.79837,9.99459 3.12602,10.7654 3.72045,11.3446 C4.90947,12.5062 6.98195,12.5062 8.17096,11.3446 L10.41911,9.15165 L11.6906,10.3919 L9.4425,12.585 C8.50808,13.4963 7.2664,14 5.94578,14 Z"></path></svg></span>Twitter</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFile"><path d="M5.94578,14 C4.62416,14 3.38248,13.4963 2.44892,12.585 C1.514641,11.6736 1,10.4639 1,9.17405 C1.00086108,7.88562 1.514641,6.67434 2.44892,5.76378 L7.45612,0.985988 C8.80142,-0.327216 11.1777,-0.332396 12.5354,0.992848 C13.9369,2.36163 13.9369,4.58722 12.5354,5.95418 L8.03046,10.2414 C7.16278,11.0877 5.73682,11.0894 4.86024,10.2345 C3.98394,9.37789 3.98394,7.98769 4.86024,7.1327 L6.60422,5.4317 L7.87576,6.67196 L6.13177,8.37297 C6.01668,8.48539 6.00003,8.61545 6.00003,8.68335 C6.00003,8.75083 6.01668,8.88103 6.13177,8.99429 C6.36197,9.21689 6.53749,9.21689 6.76768,8.99429 L11.2707,4.70622 C11.9645,4.03016 11.9645,2.91757 11.2638,2.23311 C10.5843,1.57007 9.40045,1.57007 8.72077,2.23311 L3.71342,7.0109 C3.12602,7.58406 2.79837,8.35435 2.79837,9.17405 C2.79837,9.99459 3.12602,10.7654 3.72045,11.3446 C4.90947,12.5062 6.98195,12.5062 8.17096,11.3446 L10.41911,9.15165 L11.6906,10.3919 L9.4425,12.585 C8.50808,13.4963 7.2664,14 5.94578,14 Z"></path></svg></span>discord</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Blockchain</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Contract Address</th></tr></thead><tbody><tr id="576ed26b-6cb7-476b-a73f-4b478ea7e699"><td class="cell-title"><a href="https://www.notion.so/Dawn-576ed26b6cb7476ba73f4b478ea7e699"><img class="icon" src="DAO%20List%206fa52/Dawn%20576ed/dawn.png"/>Dawn</a></td><td class="cell-_NH."><a href="https://www.thedaoist.co/dawn" class="url-value">https://www.thedaoist.co/dawn</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Dawn%20576ed/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Dawn%20576ed/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/TheDAOist_">https://twitter.com/TheDAOist_</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Dawn%20576ed/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Dawn%20576ed/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/NzCZHzWQGz">https://discord.gg/NzCZHzWQGz</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xCD7FFc5a417F88ca4C959821f2446bD84f8b498F</td></tr><tr id="e6c66cd0-cf35-4454-8133-a9ca24063e74"><td class="cell-title"><a href="https://www.notion.so/GnosisDAO-e6c66cd0cf3544548133a9ca24063e74"><img class="icon" src="DAO%20List%206fa52/GnosisDAO%20e6c66/gnosisdao.png"/>GnosisDAO</a></td><td class="cell-_NH."><a href="https://gnosis.io/gnosisdao/" class="url-value">https://gnosis.io/gnosisdao/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-gray">Gnosis Safe</span><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/GnosisDAO%20e6c66/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/GnosisDAO%20e6c66/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/gnosisPM">https://twitter.com/gnosisPM</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/GnosisDAO%20e6c66/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/GnosisDAO%20e6c66/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://chat.gnosis.io/">https://chat.gnosis.io/</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@"><strong>0x0DA0C3e52C977Ed3cBc641fF02DD271c3ED55aFe</strong></td></tr><tr id="026ce7d5-e9b6-4963-a0e3-43fa8239a3b1"><td class="cell-title"><a href="https://www.notion.so/Aurora-DAO-026ce7d5e9b64963a0e343fa8239a3b1"><img class="icon" src="DAO%20List%206fa52/Aurora%20DAO%20026ce/aurora.png"/>Aurora DAO</a></td><td class="cell-_NH."><a href="https://aurora.dev/dao" class="url-value">https://aurora.dev/dao</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Aurora%20DAO%20026ce/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Aurora%20DAO%20026ce/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/auroraisnear">https://twitter.com/auroraisnear</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Aurora%20DAO%20026ce/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Aurora%20DAO%20026ce/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/dEFJBz8HQV">https://discord.gg/dEFJBz8HQV</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xcdcfc0f66c522fd086a1b725ea3c0eeb9f9e8814</td></tr><tr id="9306a03b-cf37-4bf0-a28f-1995c63ad369"><td class="cell-title"><a href="https://www.notion.so/MakerDAO-9306a03bcf374bf0a28f1995c63ad369"><img class="icon" src="DAO%20List%206fa52/MakerDAO%209306a/maker.png"/>MakerDAO</a></td><td class="cell-_NH."><a href="https://makerdao.com/en/" class="url-value">https://makerdao.com/en/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/MakerDAO%209306a/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/MakerDAO%209306a/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/MakerDAO">https://twitter.com/MakerDAO</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/MakerDAO%209306a/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/MakerDAO%209306a/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.com/invite/RBRumCpEDH">https://discord.com/invite/RBRumCpEDH</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2</td></tr><tr id="06da0f71-be27-47ab-aca8-62fca4c2d19c"><td class="cell-title"><a href="https://www.notion.so/xHashtag-DAO-06da0f71be2747abaca862fca4c2d19c"><img class="icon" src="DAO%20List%206fa52/xHashtag%20D%2006da0/xhashtag.png"/>xHashtag DAO</a></td><td class="cell-_NH."><a href="https://www.xhashtag.io/" class="url-value">https://www.xhashtag.io/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/MakerDAO%209306a/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/MakerDAO%209306a/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/xhashtagio">https://twitter.com/xhashtagio</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/MakerDAO%209306a/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/MakerDAO%209306a/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.com/invite/XBvvmuCTgY">https://discord.com/invite/XBvvmuCTgY</a></span></td><td class="cell-fVsb">Avalanche &amp; Solana</td><td class="cell-ZKj@">Avalanche: 0xA608D79C5f695C0D4C0E773A4938b57e18e0fc57
+Solana: 5gs8nf4wojB5EXgDUWNLwXpknzgV2YWDhveAeBZpVLbp</td></tr><tr id="0a433fcc-05a2-4164-8589-54f9d51f5335"><td class="cell-title"><a href="https://www.notion.so/BNB48-Club-0a433fcc05a24164858954f9d51f5335"><img class="icon" src="DAO%20List%206fa52/BNB48%20Club%200a433/bnb48.svg"/>BNB48 Club</a></td><td class="cell-_NH."><a href="https://www.bnb48.club/en/" class="url-value">https://www.bnb48.club/en/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/BNB48%20Club%200a433/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/BNB48%20Club%200a433/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/bnb48club">https://twitter.com/bnb48club</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/BNB48%20Club%200a433/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/BNB48%20Club%200a433/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/FzA9Pzr">https://discord.gg/FzA9Pzr</a></span></td><td class="cell-fVsb">BSC</td><td class="cell-ZKj@">0xe6DF05CE8C8301223373CF5B969AFCb1498c5528</td></tr><tr id="d0340484-e231-4f2a-b116-a2e20da056db"><td class="cell-title"><a href="https://www.notion.so/SpiderDAO-d0340484e2314f2ab116a2e20da056db"><img class="icon" src="DAO%20List%206fa52/SpiderDAO%20d0340/spiderdao.svg"/>SpiderDAO</a></td><td class="cell-_NH."><a href="https://www.spiderdao.io/" class="url-value">https://www.spiderdao.io/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/SpiderDAO%20d0340/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/SpiderDAO%20d0340/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/spidervpn">https://twitter.com/spidervpn</a></span></td><td class="cell-oixo"></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xbcD4b7dE6fde81025f74426D43165a5b0D790Fdd</td></tr><tr id="23129dc9-570e-4e6a-a8c8-d533d95a7e35"><td class="cell-title"><a href="https://www.notion.so/DAOStack-23129dc9570e4e6aa8c8d533d95a7e35"><img class="icon" src="DAO%20List%206fa52/DAOStack%2023129/DAOStack.png"/>DAOStack</a></td><td class="cell-_NH."><a href="https://daostack.io/" class="url-value">https://daostack.io/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/DAOStack%2023129/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/DAOStack%2023129/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/daostack">https://twitter.com/daostack</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/DAOStack%2023129/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/DAOStack%2023129/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://daostack.io/community">https://daostack.io/community</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0x543Ff227F64Aa17eA132Bf9886cAb5DB55DCAddf</td></tr><tr id="fe185c6a-1973-44ef-b457-0067e52e1993"><td class="cell-title"><a href="https://www.notion.so/dydx-fe185c6a197344efb4570067e52e1993"><img class="icon" src="DAO%20List%206fa52/dydx%20fe185/dydxlogo.svg"/>dydx</a></td><td class="cell-_NH."><a href="https://dydx.foundation/" class="url-value">https://dydx.foundation/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-gray">Gnosis Safe</span><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/DAOStack%2023129/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/DAOStack%2023129/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/dydxfoundation">https://twitter.com/dydxfoundation</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/DAOStack%2023129/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/DAOStack%2023129/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="http://discord.gg/invite/dydx">http://discord.gg/invite/dydx</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0x92D6C1e31e14520e676a687F0a93788B716BEff5</td></tr><tr id="1f4adfc5-9b7c-4af4-98f6-af4d3b40a6dd"><td class="cell-title"><a href="https://www.notion.so/GovernorDAO-1f4adfc59b7c4af498f6af4d3b40a6dd"><span class="icon">💻</span>GovernorDAO</a></td><td class="cell-_NH."><a href="https://governordao.org/" class="url-value">https://governordao.org/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/GovernorDA%201f4ad/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/GovernorDA%201f4ad/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/Governor_DAO">https://twitter.com/Governor_DAO</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/GovernorDA%201f4ad/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/GovernorDA%201f4ad/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/MVh5NkN7gt">https://discord.gg/MVh5NkN7gt</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0x23f5d9e424375ae4fee44e3f56634fb47846a9a3f4255f54a3229c34298aa14e</td></tr><tr id="b164f102-3ba6-4111-8e88-735e6c5c3fc9"><td class="cell-title"><a href="https://www.notion.so/DaoHaus-b164f1023ba641118e88735e6c5c3fc9"><img class="icon" src="DAO%20List%206fa52/DaoHaus%20b164f/daohaus.png"/>DaoHaus</a></td><td class="cell-_NH."><a href="https://daohaus.club/" class="url-value">https://daohaus.club/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/DAOStack%2023129/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/DAOStack%2023129/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/nowdaoit">https://twitter.com/nowdaoit</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/DAOStack%2023129/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/DAOStack%2023129/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.com/invite/daohaus">https://discord.com/invite/daohaus</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xf2051511b9b121394fa75b8f7d4e7424337af687</td></tr><tr id="48076b34-c89f-4e0c-bd26-57cd70cfa3a3"><td class="cell-title"><a href="https://www.notion.so/PrimeDAO-48076b34c89f4e0cbd2657cd70cfa3a3"><img class="icon" src="DAO%20List%206fa52/PrimeDAO%2048076/primedao.svg"/>PrimeDAO</a></td><td class="cell-_NH."><a href="https://www.prime.xyz/" class="url-value">https://www.prime.xyz/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/GovernorDA%201f4ad/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/GovernorDA%201f4ad/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/PrimeDAO_">https://twitter.com/PrimeDAO_</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/GovernorDA%201f4ad/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/GovernorDA%201f4ad/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/primedao">https://discord.gg/primedao</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xE59064a8185Ed1Fca1D17999621eFedfab4425c9</td></tr><tr id="94cab183-189f-4496-b203-e2aee57d82e1"><td class="cell-title"><a href="https://www.notion.so/Colony-94cab183189f4496b203e2aee57d82e1"><img class="icon" src="DAO%20List%206fa52/Colony%2094cab/colony.svg"/>Colony</a></td><td class="cell-_NH."><a href="https://colony.io/" class="url-value">https://colony.io/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-gray">Gnosis Safe</span><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Colony%2094cab/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Colony%2094cab/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/joincolony">https://twitter.com/joincolony</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Colony%2094cab/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Colony%2094cab/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/feVZWwysqM">https://discord.gg/feVZWwysqM</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0x3E828ac5C480069D4765654Fb4b8733b910b13b2</td></tr><tr id="9e802d77-5142-4683-8942-6752621cbd47"><td class="cell-title"><a href="https://www.notion.so/NFT-DAO-9e802d775142468389426752621cbd47"><img class="icon" src="DAO%20List%206fa52/NFT%20DAO%209e802/nftdao.png"/>NFT DAO</a></td><td class="cell-_NH."><a href="https://dao.naffiti.com/" class="url-value">https://dao.naffiti.com/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-yellow">NFT</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/NFT%20DAO%209e802/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/NFT%20DAO%209e802/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/NFTDAOfficial">https://twitter.com/NFTDAOfficial</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/NFT%20DAO%209e802/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/NFT%20DAO%209e802/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.io/NFTDAOfficial">https://discord.io/NFTDAOfficial</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xd049206fb408a611e543791f2d8f102a8bc253dc</td></tr><tr id="134a10ed-c0b3-4d06-bd6a-9ffb346fcd66"><td class="cell-title"><a href="https://www.notion.so/OpenDao-134a10edc0b34d06bd6a9ffb346fcd66">OpenDao</a></td><td class="cell-_NH."><a href="https://www.theopendao.com/" class="url-value">https://www.theopendao.com/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-yellow">NFT</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/The_OpenDAO">https://twitter.com/The_OpenDAO</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/opendao">https://discord.gg/opendao</a></span></td><td class="cell-fVsb">Ethereum, Solana</td><td class="cell-ZKj@">Ethereum: 0x3b484b82567a09e2588a13d54d032153f0c0aee0
+Solana: 6Q5fvsJ6kgAFmisgDqqyaFd9FURYzHf8MCUbpAUaGZnE</td></tr><tr id="5376d938-2036-4b8d-8c5f-db1c44767a49"><td class="cell-title"><a href="https://www.notion.so/The-Super-Rare-DAO-5376d93820364b8d8c5fdb1c44767a49"><img class="icon" src="DAO%20List%206fa52/The%20Super%20%205376d/superrare.png"/>The Super Rare DAO</a></td><td class="cell-_NH."><a href="https://superrare.com/the-superrare-dao" class="url-value">https://superrare.com/the-superrare-dao</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-gray">Gnosis Safe</span><span class="selected-value select-value-color-yellow">NFT</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/SuperRare">https://twitter.com/SuperRare</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.com/invite/HYB4YKZbga">https://discord.com/invite/HYB4YKZbga</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xba5BDe662c17e2aDFF1075610382B9B691296350</td></tr><tr id="3573fb5f-4ed9-4312-9d00-8a93eb4a68b7"><td class="cell-title"><a href="https://www.notion.so/Defiant-Pixel-Society-3573fb5f4ed943129d008a93eb4a68b7">Defiant Pixel Society</a></td><td class="cell-_NH."><a href="https://www.defiantpixels.com" class="url-value">https://www.defiantpixels.com</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-yellow">NFT</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/DefiantPixel">https://twitter.com/DefiantPixel</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/discord.svg" alt="discord.svg"/></a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xeeaa20b7ee279240eba46c628b139aa56b1de1d7</td></tr><tr id="5ebd1de6-7621-4cda-bb0d-74b16e349989"><td class="cell-title"><a href="https://www.notion.so/xDai-Punks-5ebd1de676214cdabb0d74b16e349989"><img class="icon" src="DAO%20List%206fa52/xDai%20Punks%205ebd1/xDai_punks.png"/>xDai Punks</a></td><td class="cell-_NH."><a href="https://xdaipunks.com/" class="url-value">https://xdaipunks.com/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-yellow">NFT</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/xDaiPunks">https://twitter.com/xDaiPunks</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/TTZKkY2Ygx">https://discord.gg/TTZKkY2Ygx</a></span></td><td class="cell-fVsb">Gnosis Chain (formerly xDai)</td><td class="cell-ZKj@"><a href="https://blockscout.com/xdai/mainnet/address/0x988d1Be68F2C5cDE2516a2287c59Bd6302b7D20D">0x988d1be68f2c5cde2516a2287c59bd6302b7d20d</a>
+</td></tr><tr id="955cd706-fd8b-4938-9437-a226db604b3a"><td class="cell-title"><a href="https://www.notion.so/MeetbitsDAO-955cd706fd8b49389437a226db604b3a"><img class="icon" src="DAO%20List%206fa52/MeetbitsDA%20955cd/MeebitsDao_Logo_Transparent-v2.6612cbb4.png"/>MeetbitsDAO</a></td><td class="cell-_NH."><a href="https://meebitsdao.world/" class="url-value">https://meebitsdao.world/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-yellow">NFT</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/squiggledao">https://twitter.com/MeebitsDAO</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/8vYmh3qA3W">https://discord.gg/zuJUaTjWBZ</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0x641927E970222B10b2E8CDBC96b1B4F427316f16</td></tr><tr id="015dad09-5f9f-4705-83d5-abd9e31f50ec"><td class="cell-title"><a href="https://www.notion.so/SquiggleDAO-015dad095f9f470583d5abd9e31f50ec"><img class="icon" src="DAO%20List%206fa52/SquiggleDA%20015da/squiggle.png"/>SquiggleDAO</a></td><td class="cell-_NH."><a href="https://squiggledao.com/" class="url-value">https://squiggledao.com/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-yellow">NFT</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/squiggledao">https://twitter.com/squiggledao</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/OpenDao%20134a1/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/OpenDao%20134a1/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/8vYmh3qA3W">https://discord.gg/8vYmh3qA3W</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0x373acdA15Ce392362e4b46ED97a7feEcD7EF9EB8</td></tr><tr id="a4e8de89-0a03-44b0-910d-dcb6ee40026b"><td class="cell-title"><a href="https://www.notion.so/JennyDAO-a4e8de890a0344b0910ddcb6ee40026b"><img class="icon" src="DAO%20List%206fa52/JennyDAO%20a4e8d/jennyDAO.png"/>JennyDAO</a></td><td class="cell-_NH."><a href="https://jennynft.io/" class="url-value">https://jennynft.io/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-yellow">NFT</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/JennyDAO%20a4e8d/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/JennyDAO%20a4e8d/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/JennyMetaverse">https://twitter.com/JennyMetaverse</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/JennyDAO%20a4e8d/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/JennyDAO%20a4e8d/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/stgGTNAaXw">https://discord.gg/stgGTNAaXw</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xa499648fD0e80FD911972BbEb069e4c20e68bF22</td></tr><tr id="770a8d76-515e-407d-8195-dd94880d63b4"><td class="cell-title"><a href="https://www.notion.so/Flamingo-770a8d76515e407d8195dd94880d63b4"><img class="icon" src="DAO%20List%206fa52/Flamingo%20770a8/flamingo.jpg"/>Flamingo</a></td><td class="cell-_NH."><a href="https://flamingodao.xyz/" class="url-value">https://flamingodao.xyz/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-yellow">NFT</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Flamingo%20770a8/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Flamingo%20770a8/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/FLAMINGODAO">https://twitter.com/FLAMINGODAO</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Flamingo%20770a8/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Flamingo%20770a8/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/yZ6BPxkWfj">https://discord.gg/yZ6BPxkWfj</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0x83461DcE424EF992cAC970F7F6656aA7628d8153</td></tr><tr id="ef227cb5-4578-4bcf-ad50-4b305ea552c4"><td class="cell-title"><a href="https://www.notion.so/PleasrDAO-ef227cb545784bcfad504b305ea552c4"><img class="icon" src="DAO%20List%206fa52/PleasrDAO%20ef227/pleasrDAO.png"/>PleasrDAO</a></td><td class="cell-_NH."><a href="https://pleasr.org/" class="url-value">https://pleasr.org/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-yellow">NFT</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/PleasrDAO%20ef227/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/PleasrDAO%20ef227/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/PleasrDAO">https://twitter.com/PleasrDAO</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/PleasrDAO%20ef227/github-logo.png"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/PleasrDAO%20ef227/github-logo.png" alt="github-logo.png"/></a></span><span style="margin-right:6px"><a href="https://github.com/PleasrDAO">https://github.com/PleasrDAO</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xba962a81F78837751be8A177378D582f337084e6</td></tr><tr id="6dcb693f-8f51-4c13-9571-2b8f39d9d305"><td class="cell-title"><a href="https://www.notion.so/Force-Dao-6dcb693f8f514c1395712b8f39d9d305"><img class="icon" src="DAO%20List%206fa52/Force%20Dao%206dcb6/forcedao.png"/>Force Dao</a></td><td class="cell-_NH."><a href="https://www.forcedao.com/" class="url-value">https://www.forcedao.com/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Force%20Dao%206dcb6/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Force%20Dao%206dcb6/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/force_dao">https://twitter.com/force_dao</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Force%20Dao%206dcb6/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Force%20Dao%206dcb6/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="http://discord.gg/xqxp2SNPwm">http://discord.gg/xqxp2SNPwm</a></span></td><td class="cell-fVsb">Ethereum &amp; Polygon</td><td class="cell-ZKj@">Ethereum: 0x2C31b10ca416b82Cec4c5E93c615ca851213d48D</td></tr><tr id="599e9018-d7b0-4480-992a-5e2e52e48fb7"><td class="cell-title"><a href="https://www.notion.so/Honeyswap-599e9018d7b04480992a5e2e52e48fb7"><img class="icon" src="DAO%20List%206fa52/Honeyswap%20599e9/honey.png"/>Honeyswap</a></td><td class="cell-_NH."><a href="https://honeyswap.org/" class="url-value">https://honeyswap.org/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Honeyswap%20599e9/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Honeyswap%20599e9/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/honeyswap">https://twitter.com/honeyswap</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Honeyswap%20599e9/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Honeyswap%20599e9/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/ruPtTTabDu">https://discord.gg/ruPtTTabDu</a></span></td><td class="cell-fVsb">xDai and Ethereum</td><td class="cell-ZKj@">Ethereum: 0xc3589f56b6869824804a5ea29f2c9886af1b0fce
+xDai: 0x71850b7e9ee3f13ab46d67167341e4bdc905eef9</td></tr><tr id="a2d7e3c8-5dba-48ec-a806-3e3f2b842420"><td class="cell-title"><a href="https://www.notion.so/PowerPool-DAO-a2d7e3c85dba48eca8063e3f2b842420"><img class="icon" src="DAO%20List%206fa52/PowerPool%20%20a2d7e/powerpool.png"/>PowerPool DAO</a></td><td class="cell-_NH."><a href="https://powerpool.finance/" class="url-value">https://powerpool.finance/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-orange">Governance</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/PowerPool%20%20a2d7e/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/PowerPool%20%20a2d7e/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/powerpoolcvp/">https://twitter.com/powerpoolcvp/</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/PowerPool%20%20a2d7e/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/PowerPool%20%20a2d7e/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/c5NhqqjYjE">https://discord.gg/c5NhqqjYjE</a></span></td><td class="cell-fVsb">Ethereum &amp; Polygon</td><td class="cell-ZKj@">Ethereum: 0x38e4adB44ef08F22F5B5b76A8f0c2d0dCbE7DcA1
+Polygon: 0x530d954549F3Efa00799784BC7FE0C3FED76Da19</td></tr><tr id="e67bd794-d950-4d16-8d0a-0229ad0e7cb3"><td class="cell-title"><a href="https://www.notion.so/Mantra-DAO-e67bd794d9504d168d0a0229ad0e7cb3"><img class="icon" src="DAO%20List%206fa52/Mantra%20DAO%20e67bd/kilmadao.png"/>Mantra DAO</a></td><td class="cell-_NH."><a href="https://www.mantradao.com/" class="url-value">https://www.mantradao.com/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Mantra%20DAO%20e67bd/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Mantra%20DAO%20e67bd/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/MANTRADAO">https://twitter.com/MANTRADAO</a></span></td><td class="cell-oixo"></td><td class="cell-fVsb">Ethereum, Polygon, &amp; BSC</td><td class="cell-ZKj@">Ethereum: 0x3593d125a4f7849a1b059e64f4517a86dd60c95d
+Polygon: 0xc3ec80343d2bae2f8e680fdadde7c17e71e114ea
+BSC: 0xf78d2e7936f5fe18308a3b2951a93b6c4a41f5e2</td></tr><tr id="c1559dd2-0466-43f0-a0bb-df8ada2675bf"><td class="cell-title"><a href="https://www.notion.so/Nemesis-DAO-c1559dd2046643f0a0bbdf8ada2675bf">Nemesis DAO</a></td><td class="cell-_NH."><a href="https://nemesisdao.finance/" class="url-value">https://nemesisdao.finance/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Nemesis%20DA%20c1559/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Nemesis%20DA%20c1559/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/daoinvestorg">https://twitter.com/daoinvestorg</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Nemesis%20DA%20c1559/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Nemesis%20DA%20c1559/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.com/invite/b8CUaukZn6">https://discord.com/invite/b8CUaukZn6</a></span></td><td class="cell-fVsb">BSC</td><td class="cell-ZKj@">0x8ac9dc3358a2db19fdd57f433ff45d1fc357afb3</td></tr><tr id="20275958-649d-4636-b26e-3a8edb51dcbc"><td class="cell-title"><a href="https://www.notion.so/KeeperDAO-20275958649d4636b26e3a8edb51dcbc"><img class="icon" src="DAO%20List%206fa52/KeeperDAO%2020275/keeper.png"/>KeeperDAO</a></td><td class="cell-_NH."><a href="https://www.keeperdao.com/" class="url-value">https://www.keeperdao.com/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Nemesis%20DA%20c1559/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Nemesis%20DA%20c1559/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/Keeper_DAO">https://twitter.com/Keeper_DAO</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Nemesis%20DA%20c1559/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Nemesis%20DA%20c1559/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/3JUgvyyNhA">https://discord.gg/3JUgvyyNhA</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xfa5047c9c78b8877af97bdcb85db743fd7313d4a</td></tr><tr id="31efc206-9d98-4a15-9653-02b7f8b74693"><td class="cell-title"><a href="https://www.notion.so/DAO-Invest-31efc2069d984a15965302b7f8b74693"><img class="icon" src="DAO%20List%206fa52/DAO%20Invest%2031efc/dao_invest.png"/>DAO Invest</a></td><td class="cell-_NH."><a href="https://daoinvest.org/" class="url-value">https://daoinvest.org/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Nemesis%20DA%20c1559/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Nemesis%20DA%20c1559/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/daoinvestorg">https://twitter.com/daoinvestorg</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Nemesis%20DA%20c1559/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Nemesis%20DA%20c1559/discord.svg" alt="discord.svg"/></a></span></td><td class="cell-fVsb">ethereum, polygon, &amp; BSC</td><td class="cell-ZKj@">Ethereum: 0x1f19f83fC9a25F3C861260143E36c17706257986
+Polygon: 0x381caf412B45dAc0f62FBEeC89DE306D3eABE384
+BSC: 0x873801ae2ff12d816db9a7b082f5796bec64c82c</td></tr><tr id="5ee071df-3dcc-4419-8699-eaa6673d3e7d"><td class="cell-title"><a href="https://www.notion.so/Wing-Finance-5ee071df3dcc44198699eaa6673d3e7d"><img class="icon" src="DAO%20List%206fa52/Wing%20Finan%205ee07/wing.png"/>Wing Finance</a></td><td class="cell-_NH."><a href="https://wing.finance/" class="url-value">https://wing.finance/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Nemesis%20DA%20c1559/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Nemesis%20DA%20c1559/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/Wing_Finance">https://twitter.com/Wing_Finance</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Nemesis%20DA%20c1559/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Nemesis%20DA%20c1559/discord.svg" alt="discord.svg"/></a></span></td><td class="cell-fVsb">Ethereum, BSC</td><td class="cell-ZKj@">WING (OEP-4): 00c59fcd27a562d6397883eab1f2fff56e58ef80
+pWING (ERC-20): 0xDb0f18081b505A7DE20B18ac41856BCB4Ba86A1a
+WING (KIP-20): 0x7a47ab305b8a2a3f4020d13fa9ef73cddcc0e7d4
+WING (BEP-20): 0x3cb7378565718c64ab86970802140cc48ef1f969</td></tr><tr id="416f4152-2501-4fc2-9df3-4305a3f483c5"><td class="cell-title"><a href="https://www.notion.so/Kyber-416f415225014fc29df34305a3f483c5"><img class="icon" src="DAO%20List%206fa52/Kyber%20416f4/kyber.png"/>Kyber</a></td><td class="cell-_NH."><a href="https://kyber.org/" class="url-value">https://kyber.org/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Nemesis%20DA%20c1559/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Nemesis%20DA%20c1559/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/KyberDAO/">https://twitter.com/KyberDAO/</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Nemesis%20DA%20c1559/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Nemesis%20DA%20c1559/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.com/invite/NB3vc8J9uv">https://discord.com/invite/NB3vc8J9uv</a></span></td><td class="cell-fVsb">Ethereum, Polygon, Binance Smart Chain (BSC), Avalanche, and Fantom</td><td class="cell-ZKj@">Ethereum: 0x833e4083B7ae46CeA85695c4f7ed25CDAd8886dE
+Polygon: 0x5f1fe642060b5b9658c15721ea22e982643c095c
+BSC: 0x878dFE971d44e9122048308301F540910Bbd934c
+Avalanche: 0x10908C875D865C66f271F5d3949848971c9595C9
+Fantom: 0x78df70615ffc8066cc0887917f2Cd72092C86409</td></tr><tr id="70b867e4-858c-4754-96fc-100959b15c5e"><td class="cell-title"><a href="https://www.notion.so/Mai-Finance-70b867e4858c475496fc100959b15c5e"><img class="icon" src="DAO%20List%206fa52/Mai%20Financ%2070b86/mai.svg"/>Mai Finance</a></td><td class="cell-_NH."><a href="https://mai.finance/" class="url-value">https://mai.finance/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Mai%20Financ%2070b86/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Mai%20Financ%2070b86/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/QiDaoProtocol">https://twitter.com/QiDaoProtocol</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Mai%20Financ%2070b86/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Mai%20Financ%2070b86/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/mQq55j65xJ">https://discord.gg/mQq55j65xJ</a></span></td><td class="cell-fVsb">Polygon, Avalanche, Fantom, moonriver, solana, arbitrium, BSC, METIS, Fantom, Aurora, Harmony, Cronos, Boba, Iotex, Celo, xDAI</td><td class="cell-ZKj@">Polygon: 0xa3fa99a148fa48d14ed51d610c367c61876997f1
+Solana: 9mWRABuz2x6koTPCWiCPM49WUbcrNqGTHBV9T9k7y1o7
+Fantom: 0xfb98b335551a418cd0737375a2ea0ded62ea213b
+Avalanche: 0x5c49b268c9841aff1cc3b0a418ff5c3442ee3f3b
+Moonriver: 0xFb2019DfD635a03cfFF624D210AEe6AF2B00fC2C
+Harmony: 0x3F56e0c36d275367b8C502090EDF38289b3dEa0d
+Cronos: 0x2Ae35c8E3D4bD57e8898FF7cd2bBff87166EF8cb
+Arbitrum: 0x3F56e0c36d275367b8C502090EDF38289b3dEa0d
+Boba: 0x3F56e0c36d275367b8C502090EDF38289b3dEa0d
+xDAI: 0x3F56e0c36d275367b8C502090EDF38289b3dEa0d
+METIS: 0xdFA46478F9e5EA86d57387849598dbFB2e964b02
+BSC: 0x3F56e0c36d275367b8C502090EDF38289b3dEa0d
+Aurora: 0xdFA46478F9e5EA86d57387849598dbFB2e964b02
+Celo: 0xB9C8F0d3254007eE4b98970b94544e473Cd610EC
+IoTeX: 0x3F56e0c36d275367b8C502090EDF38289b3dEa0d</td></tr><tr id="75b4a9ab-eeed-49eb-b7a6-18793a2dfe7c"><td class="cell-title"><a href="https://www.notion.so/Flurry-Finance-75b4a9abeeed49ebb7a618793a2dfe7c"><img class="icon" src="DAO%20List%206fa52/Flurry%20Fin%2075b4a/flurry.png"/>Flurry Finance</a></td><td class="cell-_NH."><a href="https://www.flurry.finance/" class="url-value">https://www.flurry.finance/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Flurry%20Fin%2075b4a/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Flurry%20Fin%2075b4a/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/FlurryFi">https://twitter.com/FlurryFi</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Flurry%20Fin%2075b4a/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Flurry%20Fin%2075b4a/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/t78aN3dmD2">https://discord.gg/t78aN3dmD2</a></span></td><td class="cell-fVsb">Ethereum, Polygon, BSC, Avalanche</td><td class="cell-ZKj@">Ethereum: 0x60F63B76E2Fc1649E57a3489162732A90ACf59FE
+Polygon: 0x9cD733ffe21806b9a8943ee1C3889faE7eE8E1c7
+BSC: 0x47c9BcEf4fE2dBcdf3Abf508f147f1bBE8d4fEf2                                                                        </td></tr><tr id="784e8bee-b019-497a-a791-087831ce5dfa"><td class="cell-title"><a href="https://www.notion.so/Kilma-DAO-784e8beeb019497aa791087831ce5dfa"><img class="icon" src="DAO%20List%206fa52/Mantra%20DAO%20e67bd/kilmadao.png"/>Kilma DAO</a></td><td class="cell-_NH."><a href="https://www.klimadao.finance/" class="url-value">https://www.klimadao.finance/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Mantra%20DAO%20e67bd/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Mantra%20DAO%20e67bd/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/KlimaDAO">https://twitter.com/KlimaDAO</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Kilma%20DAO%20784e8/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Kilma%20DAO%20784e8/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.com/invite/klimadao">https://discord.com/invite/klimadao</a></span></td><td class="cell-fVsb">Polygon</td><td class="cell-ZKj@">0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7</td></tr><tr id="e7355347-fddb-4a4a-9d17-4be2036095be"><td class="cell-title"><a href="https://www.notion.so/0xDao-e7355347fddb4a4a9d174be2036095be"><img class="icon" src="DAO%20List%206fa52/0xDao%20e7355/0x.png"/>0xDao</a></td><td class="cell-_NH."><a href="https://0x.org/" class="url-value">https://0x.org/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/0xDao%20e7355/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/0xDao%20e7355/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/0xproject">https://twitter.com/0xproject</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/0xDao%20e7355/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/0xDao%20e7355/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/d3FTX3M">https://discord.gg/d3FTX3M</a></span></td><td class="cell-fVsb">Polygon</td><td class="cell-ZKj@">0xCD7FFc5a417F88ca4C959821f2446bD84f8b498F</td></tr><tr id="824509f2-a45a-4901-8fb8-060c9a2a7f2d"><td class="cell-title"><a href="https://www.notion.so/BadgerDao-824509f2a45a49018fb8060c9a2a7f2d"><img class="icon" src="DAO%20List%206fa52/BadgerDao%2082450/badger.png"/>BadgerDao</a></td><td class="cell-_NH."><a href="https://app.badger.com/" class="url-value">https://app.badger.com/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/BadgerDao%2082450/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/BadgerDao%2082450/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/BadgerDAO">https://twitter.com/BadgerDAO</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/BadgerDao%2082450/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/BadgerDao%2082450/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.com/invite/badgerdao">https://discord.com/invite/badgerdao</a></span></td><td class="cell-fVsb">Ethereum, xDai, Harmony One, Fantom, Arbitrium</td><td class="cell-ZKj@">Ethereum: 0x3472a5a71965499acd81997a54bba8d852c6e53d
+xDai: 0xdfc20ae04ed70bd9c7d720f449eedae19f659d65
+Fantom: 0x753fbc5800a8c8e3fb6dc6415810d627a387dfc9
+Harmony: 0x06b19a0ce12dc71f1c7a6dd39e8983e089c40e0d
+Arbitrium: 0xbfa641051ba0a0ad1b0acf549a89536a0d76472e</td></tr><tr id="8faa0e31-8867-4aab-a0de-95cab8c7b6c7"><td class="cell-title"><a href="https://www.notion.so/FilmmakerDao-8faa0e3188674aaba0de95cab8c7b6c7">FilmmakerDao</a></td><td class="cell-_NH."><a href="https://www.filmmakerdao.com/" class="url-value">https://www.filmmakerdao.com/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/FilmmakerD%208faa0/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/FilmmakerD%208faa0/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/filmmakerdao">https://twitter.com/filmmakerdao</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/FilmmakerD%208faa0/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/FilmmakerD%208faa0/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.com/invite/TfQfnrHVap">https://discord.com/invite/TfQfnrHVap</a></span></td><td class="cell-fVsb">Polygon</td><td class="cell-ZKj@">0xCD7FFc5a417F88ca4C959821f2446bD84f8b498F</td></tr><tr id="64099680-3bce-44bd-9b57-1a7169b1e2d0"><td class="cell-title"><a href="https://www.notion.so/MonkeyBet-Dao-640996803bce44bd9b571a7169b1e2d0"><img class="icon" src="DAO%20List%206fa52/MonkeyBet%20%2064099/monkey.png"/>MonkeyBet Dao</a></td><td class="cell-_NH."><a href="https://casino.monkeybet.co/" class="url-value">https://casino.monkeybet.co/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/MonkeyBet%20%2064099/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/MonkeyBet%20%2064099/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/monkeybetdao">https://twitter.com/monkeybetdao</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/MonkeyBet%20%2064099/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/MonkeyBet%20%2064099/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/2MBUeGWSeR">https://discord.gg/2MBUeGWSeR</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0X1850B846FDB4D2EF026F54D520AA0322873F0CBD</td></tr><tr id="1a9d280a-ab02-44db-8da9-2764618168f0"><td class="cell-title"><a href="https://www.notion.so/Lido-Finance-1a9d280aab0244db8da92764618168f0"><img class="icon" src="DAO%20List%206fa52/Lido%20Finan%201a9d2/lido.png"/>Lido Finance</a></td><td class="cell-_NH."><a href="https://lido.fi/" class="url-value">https://lido.fi/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Lido%20Finan%201a9d2/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Lido%20Finan%201a9d2/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/lidofinance">https://twitter.com/lidofinance</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Lido%20Finan%201a9d2/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Lido%20Finan%201a9d2/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/vgdPfhZ">https://discord.gg/vgdPfhZ</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc</td></tr><tr id="a7af718c-8a08-41a4-9a16-2ecd4be28606"><td class="cell-title"><a href="https://www.notion.so/BitDAO-a7af718c8a0841a49a162ecd4be28606"><img class="icon" src="DAO%20List%206fa52/BitDAO%20a7af7/bitdao.png"/>BitDAO</a></td><td class="cell-_NH."><a href="https://www.bitdao.io/" class="url-value">https://www.bitdao.io/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Lido%20Finan%201a9d2/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Lido%20Finan%201a9d2/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/BitDAO_Official">https://twitter.com/BitDAO_Official</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Lido%20Finan%201a9d2/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Lido%20Finan%201a9d2/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/bitdao">https://discord.gg/bitdao</a></span></td><td class="cell-fVsb">Ethereum, Gnosis</td><td class="cell-ZKj@">0x1A4b46696b2bB4794Eb3D4c26f1c55F9170fa4C5</td></tr><tr id="81c29cea-36fe-4c23-bef4-dd589f21a36e"><td class="cell-title"><a href="https://www.notion.so/Rarible-81c29cea36fe4c23bef4dd589f21a36e"><img class="icon" src="DAO%20List%206fa52/Rarible%2081c29/rarible.png"/>Rarible</a></td><td class="cell-_NH."><a href="https://rarible.com" class="url-value">https://rarible.com</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-gray">Gnosis Safe</span><span class="selected-value select-value-color-yellow">NFT</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Rarible%2081c29/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Rarible%2081c29/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/rarible">https://twitter.com/rarible</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Rarible%2081c29/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Rarible%2081c29/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/cdaFbV5">https://discord.gg/cdaFbV5</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xFca59Cd816aB1eaD66534D82bc21E7515cE441CF</td></tr><tr id="e3c056fb-6edf-4022-aa49-eeb65d9bfae3"><td class="cell-title"><a href="https://www.notion.so/Yearn-Finance-e3c056fb6edf4022aa49eeb65d9bfae3"><img class="icon" src="DAO%20List%206fa52/Yearn%20Fina%20e3c05/yearn.png"/>Yearn.Finance</a></td><td class="cell-_NH."><a href="https://yearn.finance/#/home" class="url-value">https://yearn.finance/#/home</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Yearn%20Fina%20e3c05/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Yearn%20Fina%20e3c05/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/iearnfinance">https://twitter.com/iearnfinance</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Yearn%20Fina%20e3c05/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Yearn%20Fina%20e3c05/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.yearn.finance/">https://discord.yearn.finance/</a></span></td><td class="cell-fVsb">Ethereum, Heco, xDai, AvalancheC-Chain, BSC, and Fantom</td><td class="cell-ZKj@">Ethereum: 0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e
+Bsc: 0x88f1a5ae2a3bf98aeaf342d26b30a79438c9142e
+Fantom: 0x29b0Da86e484E1C0029B56e817912d778aC0EC69
+xDai: 0xbf65bfcb5da067446CeE6A706ba3Fe2fB1a9fdFd
+Heco: 0xb4f019beac758abbee2f906033aaa2f0f6dacb35
+Avalanche C-Chain: 0x9eAaC1B23d935365bD7b542Fe22cEEe2922f52dc</td></tr><tr id="f39e3c28-36cd-4f17-af55-3ca735526725"><td class="cell-title"><a href="https://www.notion.so/Sushi-f39e3c2836cd4f17af553ca735526725"><img class="icon" src="DAO%20List%206fa52/Sushi%20f39e3/sushi.png"/>Sushi</a></td><td class="cell-_NH."><a href="https://sushi.com/" class="url-value">https://sushi.com/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Sushi%20f39e3/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Sushi%20f39e3/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/sushiswap">https://twitter.com/sushiswap</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Sushi%20f39e3/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Sushi%20f39e3/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.gg/CD2YdZzb7Z">https://discord.gg/CD2YdZzb7Z</a></span></td><td class="cell-fVsb">Ethereum, polygon, avalanche</td><td class="cell-ZKj@">0x5ad6211CD3fdE39A9cECB5df6f380b8263d1e277</td></tr><tr id="b88616fc-8130-4bd4-93c1-c854ef250a78"><td class="cell-title"><a href="https://www.notion.so/Zerion-b88616fc81304bd493c1c854ef250a78"><img class="icon" src="DAO%20List%206fa52/Zerion%20b8861/zerion.png"/>Zerion</a></td><td class="cell-_NH."><a href="https://zerion.io/" class="url-value">https://zerion.io/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Zerion%20b8861/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Zerion%20b8861/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/zerion_io">https://twitter.com/zerion_io</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Zerion%20b8861/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Zerion%20b8861/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://zerion.io/discord">https://zerion.io/discord</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xd2f373C832EbEeC803eb6A3555E1fe34aD2eF9F7</td></tr><tr id="d9f5aa3b-0536-4139-ac65-c5f3e91f84bd"><td class="cell-title"><a href="https://www.notion.so/Balancer-d9f5aa3b05364139ac65c5f3e91f84bd"><img class="icon" src="DAO%20List%206fa52/Balancer%20d9f5a/balancer.png"/>Balancer</a></td><td class="cell-_NH."><a href="https://balancer.fi/" class="url-value">https://balancer.fi/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-blue">Defi</span><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Balancer%20d9f5a/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Balancer%20d9f5a/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/BalancerLabs">https://twitter.com/BalancerLabs</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/Balancer%20d9f5a/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/Balancer%20d9f5a/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.balancer.fi/">https://discord.balancer.fi/</a></span></td><td class="cell-fVsb">Ethereum</td><td class="cell-ZKj@">0xba100000625a3754423978a60c9317c58a424e3d</td></tr><tr id="0e5b5e2f-33c0-41d6-b4ef-9d7b925d9adb"><td class="cell-title"><a href="https://www.notion.so/THX-Network-0e5b5e2f33c041d6b4ef9d7b925d9adb"><img class="icon" src="DAO%20List%206fa52/THX%20Networ%200e5b5/thx.svg"/>THX Network</a></td><td class="cell-_NH."><a href="https://thx.network/" class="url-value">https://thx.network/</a></td><td class="cell-,jGi"><span class="selected-value select-value-color-gray">Gnosis Safe</span></td><td class="cell-EW)n"><span style="margin-right:6px"><a href="DAO%20List%206fa52/DAOStack%2023129/icons8-twitter.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/DAOStack%2023129/icons8-twitter.svg" alt="icons8-twitter.svg"/></a></span><span style="margin-right:6px"><a href="https://twitter.com/thxprotocol">https://twitter.com/thxprotocol</a></span></td><td class="cell-oixo"><span style="margin-right:6px"><a href="DAO%20List%206fa52/DAOStack%2023129/discord.svg"><img style="width:20px;max-height:24px" src="DAO%20List%206fa52/DAOStack%2023129/discord.svg" alt="discord.svg"/></a></span><span style="margin-right:6px"><a href="https://discord.com/invite/TzbbSmkE7Y">https://discord.com/invite/TzbbSmkE7Y</a></span></td><td class="cell-fVsb">Polygon and Ethereum</td><td class="cell-ZKj@">0xe632ea2eF2CFD8Fc4a2731C76F99078Aef6a4B31</td></tr><tr id="bcb1e700-75e9-490a-9b6f-d75a8862f6e4"><td class="cell-title"><a href="https://www.notion.so/bcb1e70075e9490a9b6fd75a8862f6e4">Untitled</a></td><td class="cell-_NH."></td><td class="cell-,jGi"></td><td class="cell-EW)n"></td><td class="cell-oixo"></td><td class="cell-fVsb"></td><td class="cell-ZKj@"></td></tr></tbody></table></div></article></body></html>
