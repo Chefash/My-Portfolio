@@ -1,71 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dao Directory </title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="header">
-     Governance 
-    </div>
-    
-    
-    
-   <div class="cards">
-     <article class="card">
-        <header>
-          <h2><a href="https://tribeca.so/">Tribeca DAO</a></h2>
-        </header>    
-        <img src="tribeca.png" alt="tribeca dao-logo">
-        <div class="content">
-            <p>Governance protocols built for Solana. Create, manage, and interact with a Dao.</p>
-        </div>
-       
-    </article>
-            
-    <article class="card">
-        <header>
-          <h2><a href="https://www.sputnik.fund/#/">Sputnik</a></h2>
-        </header>
-        <img src="sputnik.png" alt="sputnik-logo">
-        <div class="content">
-            <p>Hub of Daos empowering and funding communities in the NEAR ecosystem.</p>
-        </div>
-       
-    </article>
-     <article class="card">
-        <header>
-          <h2><a href="	https://paladin.vote/">Paladin</a> </h2>
-        </header>    
-        <img src="paladin.png" alt="paladin-logo">
-        <div class="content">
-          <p>Decentralized influence protocol to manage governance tokens. Create proposals or earn interest on governance token on this platform.</p>
-        </div>
-            
-    </article>
-            
-     <article class="card">
-        <header>
-          <h2><a href="https://sybil.org/">Sybil</a></h2>
-        </header>    
-        <img src="sybil.png" alt="Sybil-logo">
-        <div class="content">
-            <p>Sybil is a governance tool for discovering delegates. Create and manage on-chain delegation and voting. Supports various Ethereum governance initiatives.</p>
-        </div>
-       
-    </article>
-            
-    <article class="card">
-        <header>
-          <h2><a href="https://superdao.co/">Super Dao</a></h2>
-        </header>
-        <img src="superdao.png" alt="super-dao-logo">
-        <div class="content">
-            <p>SuperDao makes it easy to create, manage, and grow your own Dao in their ecosystem.</p>
-        </div>
+.header{
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-family: monospace;
+  font-size:50px;
+  font-weight: 500px;
+  padding: 20px;
+  border: solid 5px black;
+  margin-bottom: 40px;
+} 
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-gap: 20px;
+  text-decoration: none;
+  
+}
+
+.card {
+    display: grid;
+    grid-template-rows: max-content 50px 1fr;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+  margin: 20px;
+  border: solid 2px black;
+  
+}
+
+.card img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
        
     </article>
     <article class="card">
