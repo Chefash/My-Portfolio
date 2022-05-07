@@ -563,5 +563,24 @@ top: 1272px;
   left: 0px;
   overflow: hidden;
 }
+/* left-column */
+
+
+/* Auto layout */
+{
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 535px;
+height: 4160px;
+left: 0px;
+top: 88px;
+
+background: #0E0101;
+
+}
 </style>
 
