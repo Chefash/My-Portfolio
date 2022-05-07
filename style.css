@@ -273,5 +273,221 @@ body {
   left: 25px;
   overflow: hidden;
 }
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v15_44 {
+  width: 100%;
+  height: 359px;
+  background: url("../images/v15_44.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 14px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v9_4 {
+  width: 484px;
+  color: rgba(255,253,253,1);
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  font-family: Lemon;
+  font-weight: Regular;
+  font-size: 30px;
+  opacity: 1;
+  text-align: left;
+}
+.v9_3 {
+  width: 248px;
+  height: 186px;
+  background: url("../images/v9_3.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 518px;
+  overflow: hidden;
+}
+.v9_2 {
+  width: 626px;
+  height: 282px;
+  background: url("../images/v9_2.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 780px;
+  overflow: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v15_43 {
+  width: 100%;
+  height: 428px;
+  background: url("../images/v15_43.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 20px 21px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v9_8 {
+  width: 539px;
+  color: rgba(250,245,245,1);
+  position: absolute;
+  top: 20px;
+  left: 21px;
+  font-family: Lemon;
+  font-weight: Regular;
+  font-size: 30px;
+  opacity: 1;
+  text-align: left;
+}
+.v17_46 {
+  width: 215px;
+  height: 204px;
+  background: url("../images/v17_46.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 20px;
+  left: 560px;
+  overflow: hidden;
+}
+.v9_11 {
+  width: 284px;
+  height: 174px;
+  background: url("../images/v9_11.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 20px;
+  left: 775px;
+  overflow: hidden;
+}
+.v9_10 {
+  width: 136px;
+  height: 148px;
+  background: url("../images/v9_10.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 20px;
+  left: 1059px;
+  overflow: hidden;
+}
+.v9_9 {
+  width: 142px;
+  height: 155px;
+  background: url("../images/v9_9.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 20px;
+  left: 1195px;
+  overflow: hidden;
+}* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v15_45 {
+  width: 100%;
+  height: 286px;
+  background: url("../images/v15_45.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 61px 33px;
+  margin: 157px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v9_7 {
+  width: 416px;
+  color: rgba(255,249,249,1);
+  position: absolute;
+  top: 61px;
+  left: 33px;
+  font-family: Lemon;
+  font-weight: Regular;
+  font-size: 30px;
+  opacity: 1;
+  text-align: left;
+}
+.v9_5 {
+  width: 206px;
+  height: 164px;
+  background: url("../images/v9_5.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 61px;
+  left: 606px;
+  overflow: hidden;
+}
+.v9_6 {
+  width: 224px;
+  height: 160px;
+  background: url("../images/v9_6.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 61px;
+  left: 969px;
+  overflow: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v15_41 {
+  width: 535px;
+  height: 4160px;
+  background: rgba(13,0,0,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
 </style>
 
