@@ -1,6 +1,23 @@
 <style>* {
   box-sizing: border-box;
 }
+{
+/* navbar */
+
+
+/* Auto layout */
+
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 1px 0px;
+
+position: absolute;
+width: 1843px;
+height: 84px;
+left: 9px;
+top: 0px;
+}
 body {
   font-size: 14px;
 }
@@ -46,6 +63,8 @@ body {
   left: 0px;
   overflow: hidden;
 }
+
+
 .v6_4 {
   width: 172px;
   color: rgba(0,0,0,1);
@@ -96,6 +115,7 @@ body {
   left: 341px;
   overflow: hidden;
 }
+
 .v6_6 {
   width: 172px;
   color: rgba(0,0,0,1);
@@ -145,6 +165,27 @@ body {
   text-align: left;
 }
 
+
+/* Bio */
+
+
+/* Auto layout */
+
+{
+  display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 30px 25px 0px;
+
+position: absolute;
+width: 1311px;
+height: 373px;
+left: -6px;
+top: 152px;
+
+}
+
+
 .v15_42 {
   width: 100%;
   height: 275px;
@@ -183,7 +224,22 @@ body {
   opacity: 1;
   text-align: left;
 }
+/* Brand-assests */
 
+
+/* Auto layout */
+{
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 24px 8px;
+
+position: absolute;
+width: 1413px;
+height: 389px;
+left: 1px;
+top: 525px;
+}
 .v7_20 {
   width: 100%;
   height: 389px;
@@ -199,6 +255,7 @@ body {
   left: 0px;
   overflow: hidden;
 }
+
 .v7_21 {
   width: 504px;
   color: rgba(255,248,248,1);
@@ -423,6 +480,21 @@ body {
   opacity: 1;
   text-align: left;
 }
+/* match-block */
+
+
+/* Auto layout */
+{
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px 20px;
+
+position: absolute;
+width: 1426px;
+height: 359px;
+left: 7px;
+  top: 945px;}
 .v9_5 {
   width: 206px;
   height: 164px;
@@ -435,6 +507,22 @@ body {
   top: 61px;
   left: 606px;
   overflow: hidden;
+}
+/* up-heal */
+
+
+/* Auto layout */
+{
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 20px 0px 0px 21px;
+
+position: absolute;
+width: 1342px;
+height: 428px;
+left: calc(50% - 1342px/2 - 49px);
+top: 1721px;
 }
 .v9_6 {
   width: 224px;
@@ -449,7 +537,22 @@ body {
   left: 969px;
   overflow: hidden;
 }
+/* spice-dao */
 
+
+/* Auto layout */
+{
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 61px 33px;
+
+position: absolute;
+width: 1284px;
+height: 286px;
+left: 1px;
+top: 1272px;
+}
 .v15_41 {
   width: 535px;
   height: 4160px;
